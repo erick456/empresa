@@ -1,0 +1,1 @@
+  <link href="<?php echo base_url(); ?>public/css/application.min.css" rel="stylesheet">
