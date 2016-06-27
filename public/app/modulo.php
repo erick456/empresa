@@ -50,7 +50,7 @@
 	function eliminar_modulo(id_modulo)
 	{
 
-		$.post("<?php echo site_url('Modulos_controlador/eliminar_modulo') ?>",{
+		$.post("<?php echo site_url('Modulos_controlador/eliminar_modulos') ?>",{
 			id_modulo:id_modulo
 		},function(data){
 			$info = data.split("|");
@@ -66,14 +66,16 @@
 	}
 	function modificar_modulo(id_modulo)
 	{
-		$.post("<?php echo site_url('Modulos_controlador/traer_modulo') ?>",{
+		$.post("<?php echo site_url('Modulos_controlador/traer_modulos') ?>",{
 			id_modulo:id_modulo
 		},function(data){
 
 			var json=JSON.parse(data);
-			$("input[name=id_modulo]").val(json.id_modulo);
-			$("input[name=descripcion]").val(json.descripcion);
-			$("input[name=estado]").val(json.estado);
+			$("input[name=id_modulo]").val(json.id_modulo);  // este el idhijo
+			$("input[name=nombre]").val(json.nombre);//este es el nombre
+			$("input[name=url]").val(json.url); // este es el url
+			$("input[name=icono]").val(json.icono);
+			$("input[name=id_padre]").val(json.id_padre);
 			$('#myModal').modal('show');
 			});
 
